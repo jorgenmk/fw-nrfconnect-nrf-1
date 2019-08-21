@@ -252,6 +252,13 @@ endmenu # Cloud
 
 menu "Environment sensors"
 
+config USE_BME680_BSEC
+	bool "Use Bosch BME680 BSEC lib"
+	default n
+	help
+	  Enable use of Bosch BSEC library. The library itself is not a part of
+	  NCS and must be downloaded from Bosch Sensortec.
+
 config ENVIRONMENT_DATA_SEND_INTERVAL
 	int "Interval in seconds for sending environment data"
 	default 30
