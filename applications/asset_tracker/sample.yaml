@@ -1,8 +1,16 @@
 sample:
   name: Asset Tracker Application
 tests:
-  test_build:
+  test_build_pca10090:
     build_only: true
     build_on_all: true
-    platform_whitelist: nrf9160_pca10090ns nrf9160_pca20035ns
+    platform_whitelist: nrf9160_pca10090ns
     tags: ci_build
+  test_build_pca20035:
+    build_only: true
+    build_on_all: true
+    platform_whitelist: nrf9160_pca20035ns
+    tags: ci_build
+    extra_configs:
+      - CONFIG_BME680=y
+      - CONFIG_USE_BME680_BSEC=n
