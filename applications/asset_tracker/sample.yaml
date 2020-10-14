@@ -6,3 +6,9 @@ tests:
     build_on_all: true
     platform_allow: nrf9160dk_nrf9160ns thingy91_nrf9160ns qemu_x86
     tags: ci_build
+  applications.asset_tracker.lwm2m_carrier:
+    build_only: true
+    build_on_all: true
+    platform_allow: nrf9160dk_nrf9160ns thingy91_nrf9160ns
+    extra_args: "-DOVERLAY_CONFIG=lwm2m_carrier_overlay.conf"
+    tags: ci_build
