@@ -23,6 +23,10 @@ LOG_MODULE_REGISTER(nrf_cloud_codec, CONFIG_NRF_CLOUD_LOG_LEVEL);
 #define TIMEOUT_STR "timeout"
 #define PAIRED_STR "paired"
 
+#ifdef CONFIG_BOARD_NATIVE_POSIX
+#define EFTYPE 79
+#endif
+
 bool initialized;
 
 #if defined(CONFIG_NRF_CLOUD_MQTT)
@@ -212,7 +216,7 @@ static int json_format_modem_info_data_obj(cJSON *const data_obj,
 int nrf_cloud_json_add_modem_info(cJSON *const data_obj)
 {
 	__ASSERT_NO_MSG(data_obj != NULL);
-
+	return 0;
 	struct modem_param_info modem_info = {0};
 	int err;
 

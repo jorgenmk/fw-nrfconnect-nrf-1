@@ -7,8 +7,9 @@
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/net/socket.h>
+#ifndef CONFIG_BOARD_NATIVE_POSIX
 #include <nrf_socket.h>
-
+#endif
 #include <cJSON.h>
 #include <net/nrf_cloud_cell_pos.h>
 #include "nrf_cloud_fsm.h"

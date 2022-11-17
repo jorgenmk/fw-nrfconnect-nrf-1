@@ -16,6 +16,10 @@
 #include <net/nrf_cloud_pgps.h>
 #endif
 
+#ifdef CONFIG_BOARD_NATIVE_POSIX
+#define EFTYPE 79
+#endif
+
 LOG_MODULE_REGISTER(nrf_cloud_fsm, CONFIG_NRF_CLOUD_LOG_LEVEL);
 
 typedef int (*fsm_transition)(const struct nct_evt *nct_evt);
