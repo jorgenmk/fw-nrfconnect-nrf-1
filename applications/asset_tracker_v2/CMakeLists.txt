@@ -35,3 +35,10 @@ if (CONFIG_BOARD_QEMU_X86)
         # cloud library.
         zephyr_include_directories(src/cloud-certs)
 endif()
+if (CONFIG_BOARD_NATIVE_POSIX)
+        target_include_directories(app PRIVATE ${NRFXLIB_DIR}/nrf_modem/include/)
+
+        # Make folder containing certificates global so that it can be located by the configured
+        # cloud library.
+        zephyr_include_directories(src/cloud-certs)
+endif()

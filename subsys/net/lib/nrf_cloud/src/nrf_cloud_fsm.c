@@ -15,7 +15,7 @@
 #if defined(CONFIG_NRF_CLOUD_PGPS)
 #include <net/nrf_cloud_pgps.h>
 #endif
-
+#define EFTYPE 79
 LOG_MODULE_REGISTER(nrf_cloud_fsm, CONFIG_NRF_CLOUD_LOG_LEVEL);
 
 typedef int (*fsm_transition)(const struct nct_evt *nct_evt);

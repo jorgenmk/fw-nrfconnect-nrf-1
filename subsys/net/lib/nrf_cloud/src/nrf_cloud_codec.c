@@ -18,7 +18,7 @@
 #include <zephyr/logging/log.h>
 #include <modem/modem_info.h>
 #include "cJSON_os.h"
-
+#define EFTYPE 79
 LOG_MODULE_REGISTER(nrf_cloud_codec, CONFIG_NRF_CLOUD_LOG_LEVEL);
 
 #define DUA_PIN_STR "not_associated"
@@ -214,7 +214,7 @@ static int json_format_modem_info_data_obj(cJSON *const data_obj,
 int nrf_cloud_json_add_modem_info(cJSON *const data_obj)
 {
 	__ASSERT_NO_MSG(data_obj != NULL);
-
+#if defined(CONFIG_NRF_MODEM_LIB)
 	struct modem_param_info modem_info = {0};
 	int err;
 
@@ -224,6 +224,9 @@ int nrf_cloud_json_add_modem_info(cJSON *const data_obj)
 	}
 
 	return json_format_modem_info_data_obj(data_obj, &modem_info);
+#else
+	return 0;
+#endif
 }
 
 static int json_add_obj_cs(cJSON *parent, const char *str, cJSON *item)
